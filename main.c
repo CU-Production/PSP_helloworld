@@ -32,9 +32,9 @@ struct Vertex
 
 struct Vertex __attribute__((aligned(16))) vertices[3] =
 {
-  {0xff0000ff,-0.5, -0.5,1}, // 0
-  {0xff00ff00, 0.5, -0.5,1}, // 1
-  {0xffff0000, 0.0,  0.5,1}, // 2
+  {0xff0000ff,-0.5, -0.5,0}, // 0
+  {0xff00ff00, 0.5, -0.5,0}, // 1
+  {0xffff0000, 0.0,  0.5,0}, // 2
 };
 
 #define BUF_WIDTH (512)
@@ -101,8 +101,8 @@ int main(int argc, char* argv[])
     sceGumMatrixMode(GU_MODEL);
     sceGumLoadIdentity();
     {
-      ScePspFVector3 pos = { 0, 0, -2.5f };
-      ScePspFVector3 rot = { val * 0.79f * (GU_PI/180.0f), val * 0.98f * (GU_PI/180.0f), val * 1.32f * (GU_PI/180.0f) };
+      ScePspFVector3 pos = { 0, 0, -1.5f };
+      ScePspFVector3 rot = { 0, val * 0.98f * (GU_PI/180.0f), 0 };
       sceGumTranslate(&pos);
       sceGumRotateXYZ(&rot);
     }
@@ -117,7 +117,7 @@ int main(int argc, char* argv[])
     sceDisplayWaitVblankStart();
     sceGuSwapBuffers();
 
-    //val++;
+    val++;
   }
 
   sceGuTerm();

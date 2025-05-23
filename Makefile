@@ -1,5 +1,5 @@
-TARGET = cube
-OBJS = cube.o logo.o callbacks.o
+TARGET = main
+OBJS = main.o callbacks.o
 
 INCDIR =
 CFLAGS = -Wall
@@ -11,10 +11,8 @@ LDFLAGS =
 LIBS= -lpspgum -lpspgu
 
 EXTRA_TARGETS = EBOOT.PBP
-PSP_EBOOT_TITLE = Cube Sample
+PSP_EBOOT_TITLE = GU Triangle
 
 PSPSDK=$(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
 
-logo.o: logo.raw
-	bin2o -i logo.raw logo.o logo
